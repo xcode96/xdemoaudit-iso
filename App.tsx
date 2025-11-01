@@ -16,6 +16,7 @@ import AddCategoryForm from './components/AddCategoryForm';
 import ImportExportControls from './components/ImportExportControls';
 import GitHubSync from './components/GitHubSync';
 import Card from './components/Card';
+import ExportCard from './components/ExportCard';
 import { processRawCategories, sanitizeCategoriesForStorage } from './constants';
 import type { Category, ChecklistItem, RawCategory, AuditStatus } from './types';
 import { ICON_MAP, ShieldIcon } from './components/icons';
@@ -273,6 +274,7 @@ const App: React.FC = () => {
                 <div className="lg:col-span-3 space-y-8">
                     <FindingsCard categories={categories} />
                     <CorrectiveActionsCard categories={categories} />
+                    <ExportCard categories={categories} baseline={baseline} />
                 </div>
             </div>
             
