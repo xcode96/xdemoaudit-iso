@@ -1,0 +1,426 @@
+
+[
+  {
+    "id": "leadership",
+    "title": "Leadership",
+    "description": "Ensuring top management's commitment and direction.",
+    "longDescription": "This theme covers the roles and responsibilities of top management in establishing, implementing, maintaining, and continually improving the information security management system.",
+    "iconName": "UserIcon",
+    "color": "#6B46C1",
+    "items": [
+      {
+        "id": "leadership-0",
+        "security": "Understanding the organisation and its context",
+        "priority": "Essential",
+        "details": "Facilitate a context workshop and capture the outputs in a living document.",
+        "clause": "Clause 4.1",
+        "scope": 1, "criticality": 1.0, "impact": 4.0,
+        "winType": "Quick Win", "effortTech": 2.0, "effortPeople": 4.0, "effortWeeks": "3.0-5.0"
+      },
+      {
+        "id": "leadership-1",
+        "security": "Understanding needs and expectations of interested parties",
+        "priority": "Essential",
+        "details": "Create and maintain a simple stakeholder matrix with expectations and contact cadence.",
+        "clause": "Clause 4.2",
+        "scope": 1, "criticality": 1.0, "impact": 3.0,
+        "winType": "Medium", "effortTech": 1.0, "effortPeople": 1.5, "effortWeeks": "1.0-2.0"
+      },
+      {
+        "id": "leadership-2",
+        "security": "Leadership and commitment",
+        "priority": "Essential",
+        "details": "Establish an information security steering group chaired by an executive sponsor.",
+        "clause": "Clause 5.1",
+        "scope": 1, "criticality": 1.5, "impact": 5.0,
+        "winType": "Quick Win", "effortTech": 0.5, "effortPeople": 2.5, "effortWeeks": "1.0-2.0"
+      },
+      {
+        "id": "leadership-3",
+        "security": "Information security objectives",
+        "priority": "Essential",
+        "details": "Set measurable quarterly security objectives aligned to business goals.",
+        "clause": "Clause 6.2",
+        "scope": 1, "criticality": 1.0, "impact": 4.0,
+        "winType": "Medium", "effortTech": 1.0, "effortPeople": 2.0, "effortWeeks": "1.0-2.0"
+      },
+      {
+        "id": "leadership-4",
+        "security": "Policies for information security",
+        "priority": "Essential",
+        "details": "Approve and publish the information security policy with executive endorsement.",
+        "clause": "Clause 5.2",
+        "scope": 1, "criticality": 1.2, "impact": 4.0,
+        "winType": "Quick Win", "effortTech": 1.0, "effortPeople": 1.5, "effortWeeks": "1.0-2.0", "dependencies": "CL5-1"
+      }
+    ]
+  },
+  {
+    "id": "organisation",
+    "title": "Organisation",
+    "description": "Structuring and planning the ISMS.",
+    "longDescription": "Focuses on determining the scope of the ISMS, managing risks, and planning for changes and resources.",
+    "iconName": "GlobeIcon",
+    "color": "#3182CE",
+    "items": [
+      {
+        "id": "organisation-0",
+        "security": "Determining the scope of the ISMS",
+        "priority": "Essential",
+        "details": "Define the boundaries and applicability of the Information Security Management System to establish its scope.",
+        "clause": "Clause 4.3",
+        "scope": 1.0, "criticality": 1.5, "impact": 4.0,
+        "winType": "Medium", "effortTech": 1.0, "effortPeople": 3.0, "effortWeeks": "2.0-3.0"
+      },
+      {
+        "id": "organisation-1",
+        "security": "Organisational roles, responsibilities and authorities",
+        "priority": "Essential",
+        "details": "Publish RACI matrix covering ISMS responsibilities and communicate to staff.",
+        "clause": "Clause 5.3",
+        "scope": 1.0, "criticality": 1.5, "impact": 4.0,
+        "winType": "Quick Win", "effortTech": 2.0, "effortPeople": 4.0, "effortWeeks": "2.0-4.0"
+      },
+      {
+        "id": "organisation-2",
+        "security": "Information security risk assessment process",
+        "priority": "Essential",
+        "details": "Define and apply a consistent risk assessment process to identify and analyze information security risks.",
+        "clause": "Clause 6.1.2",
+        "scope": 1.0, "criticality": 1.8, "impact": 5.0,
+        "winType": "Medium", "effortTech": 2.0, "effortPeople": 5.0, "effortWeeks": "4.0-6.0"
+      },
+      {
+        "id": "organisation-3",
+        "security": "Information security risk treatment",
+        "priority": "Essential",
+        "details": "Select and implement appropriate controls to treat identified information security risks.",
+        "clause": "Clause 6.1.3",
+        "scope": 1.0, "criticality": 1.8, "impact": 5.0,
+        "winType": "Medium", "effortTech": 3.0, "effortPeople": 4.0, "effortWeeks": "4.0-8.0"
+      },
+      {
+        "id": "organisation-4",
+        "security": "Planning of changes",
+        "priority": "Optional",
+        "details": "Ensure that changes to the ISMS are carried out in a planned and controlled manner.",
+        "clause": "Clause 6.3",
+        "scope": 1.0, "criticality": 1.0, "impact": 4.0,
+        "winType": "Medium", "effortTech": 0.5, "effortPeople": 1.5, "effortWeeks": "1.0-2.0"
+      },
+      {
+        "id": "organisation-5",
+        "security": "Resources",
+        "priority": "Essential",
+        "details": "Develop a resourcing plan outlining headcount, training and tooling spend for the ISMS.",
+        "clause": "Clause 7.1",
+        "scope": 1.0, "criticality": 1.5, "impact": 4.0,
+        "winType": "Quick Win", "effortTech": 1.0, "effortPeople": 5.0, "effortWeeks": "2.0-3.0"
+      }
+    ]
+  },
+  {
+    "id": "people",
+    "title": "People",
+    "description": "Managing human resources securely.",
+    "longDescription": "Covers aspects like competence, awareness, and communication related to information security among all personnel.",
+    "iconName": "KeyIcon",
+    "color": "#38A169",
+    "items": [
+      {
+        "id": "people-0",
+        "security": "Competence",
+        "priority": "Optional",
+        "details": "Ensure that individuals are competent on the basis of appropriate education, training, or experience.",
+        "clause": "Clause 7.2",
+        "scope": 1.0, "criticality": 1.0, "impact": 4.0,
+        "winType": "Medium", "effortTech": 0.5, "effortPeople": 3.0, "effortWeeks": "2.0-4.0"
+      },
+      {
+        "id": "people-1",
+        "security": "Awareness",
+        "priority": "Essential",
+        "details": "Deliver regular security awareness training to all staff and relevant parties.",
+        "clause": "Clause 7.3",
+        "scope": 1.0, "criticality": 1.2, "impact": 4.0,
+        "winType": "Quick Win", "effortTech": 1.0, "effortPeople": 2.0, "effortWeeks": "1.0-2.0"
+      },
+      {
+        "id": "people-2",
+        "security": "Communication",
+        "priority": "Optional",
+        "details": "Establish processes for internal and external communications relevant to the ISMS.",
+        "clause": "Clause 7.4",
+        "scope": 1.0, "criticality": 1.0, "impact": 3.0,
+        "winType": "Medium", "effortTech": 0.5, "effortPeople": 1.5, "effortWeeks": "1.0-1.5"
+      },
+      {
+        "id": "people-3",
+        "security": "Documented Information",
+        "priority": "Essential",
+        "details": "Create and maintain the documented information required for the ISMS, ensuring it is controlled.",
+        "clause": "Clause 7.5",
+        "scope": 1.0, "criticality": 1.2, "impact": 3.5,
+        "winType": "Medium", "effortTech": 1.0, "effortPeople": 2.5, "effortWeeks": "2.0-4.0"
+      }
+    ]
+  },
+  {
+    "id": "operations",
+    "title": "Operations",
+    "description": "Day-to-day security management and controls.",
+    "longDescription": "Includes the operational planning and control needed to implement actions determined in the planning phase.",
+    "iconName": "ComputerIcon",
+    "color": "#DD6B20",
+    "items": [
+      {
+        "id": "operations-0",
+        "security": "Operational planning and control",
+        "priority": "Essential",
+        "details": "Plan, implement and control the processes needed to meet information security requirements.",
+        "clause": "Clause 8.1",
+        "scope": 1.0, "criticality": 1.5, "impact": 4.0,
+        "winType": "Medium", "effortTech": 2.0, "effortPeople": 3.0, "effortWeeks": "3.0-5.0"
+      },
+      {
+        "id": "operations-1",
+        "security": "Information security risk assessment",
+        "priority": "Essential",
+        "details": "Perform information security risk assessments at planned intervals or when significant changes are proposed.",
+        "clause": "Clause 8.2",
+        "scope": 1.0, "criticality": 1.8, "impact": 5.0,
+        "winType": "Medium", "effortTech": 1.0, "effortPeople": 4.0, "effortWeeks": "3.0-4.0"
+      },
+      {
+        "id": "operations-2",
+        "security": "Information security risk treatment",
+        "priority": "Essential",
+        "details": "Implement the information security risk treatment plan.",
+        "clause": "Clause 8.3",
+        "scope": 1.0, "criticality": 1.8, "impact": 5.0,
+        "winType": "Medium", "effortTech": 3.0, "effortPeople": 4.0, "effortWeeks": "4.0-8.0"
+      }
+    ]
+  },
+  {
+    "id": "compliance",
+    "title": "Compliance",
+    "description": "Adhering to legal and contractual requirements.",
+    "longDescription": "Ensuring the organization complies with legal, statutory, regulatory, and contractual requirements related to information security.",
+    "iconName": "ShieldIcon",
+    "color": "#D53F8C",
+    "items": [
+      {
+        "id": "compliance-0",
+        "security": "Identification of applicable legislation and contractual requirements",
+        "priority": "Essential",
+        "details": "Create and maintain a register of legal, statutory, regulatory, and contractual requirements.",
+        "clause": "A.15.1.1",
+        "scope": 1.0, "criticality": 2.0, "impact": 5.0,
+        "winType": "Quick Win", "effortTech": 2.0, "effortPeople": 3.0, "effortWeeks": "2.0-4.0"
+      },
+      {
+        "id": "compliance-1",
+        "security": "Intellectual property rights",
+        "priority": "Optional",
+        "details": "Implement procedures to ensure compliance with intellectual property rights and use of software products.",
+        "clause": "A.15.1.2",
+        "scope": 1.0, "criticality": 1.2, "impact": 3.0,
+        "winType": "Medium", "effortTech": 1.0, "effortPeople": 2.0, "effortWeeks": "2.0-3.0"
+      },
+      {
+        "id": "compliance-2",
+        "security": "Protection of records",
+        "priority": "Optional",
+        "details": "Protect records from loss, destruction, falsification, unauthorized access, and unauthorized release.",
+        "clause": "A.15.1.3",
+        "scope": 1.0, "criticality": 1.5, "impact": 4.0,
+        "winType": "Medium", "effortTech": 1.5, "effortPeople": 1.5, "effortWeeks": "2.0-4.0"
+      },
+      {
+        "id": "compliance-3",
+        "security": "Privacy and protection of personally identifiable information (PII)",
+        "priority": "Essential",
+        "details": "Develop and implement a privacy policy and procedures for protecting PII.",
+        "clause": "A.15.2.1",
+        "scope": 1.0, "criticality": 2.0, "impact": 5.0,
+        "winType": "Quick Win", "effortTech": 2.5, "effortPeople": 3.5, "effortWeeks": "3.0-6.0"
+      }
+    ]
+  },
+  {
+    "id": "technology",
+    "title": "Technology",
+    "description": "Securing technology assets and infrastructure.",
+    "longDescription": "Covers the security of networks, systems, applications, and endpoints within the organization.",
+    "iconName": "WifiIcon",
+    "color": "#0BC5EA",
+    "items": [
+      {
+        "id": "technology-0",
+        "security": "Multi-factor authentication",
+        "priority": "Essential",
+        "details": "Roll out MFA using central identity provider and cover admin accounts first.",
+        "clause": "A.8.5",
+        "scope": 1.0, "criticality": 2.0, "impact": 5.0,
+        "winType": "Quick Win", "effortTech": 5.0, "effortPeople": 2.0, "effortWeeks": "2.0-4.0", "dependencies": "A9-1"
+      },
+      {
+        "id": "technology-1",
+        "security": "Vulnerability management",
+        "priority": "Essential",
+        "details": "Define vulnerability SLAs, automate scanning, and integrate remediation into sprint rituals.",
+        "clause": "A.12.6.1",
+        "scope": 1.0, "criticality": 1.8, "impact": 4.0,
+        "winType": "Quick Win", "effortTech": 3.2, "effortPeople": 3.2, "effortWeeks": "3.2-4.8", "dependencies": "A12-1"
+      },
+      {
+        "id": "technology-2",
+        "security": "Configuration management",
+        "priority": "Advanced",
+        "details": "Publish hardening guides, automate configuration checks and review drift dashboards.",
+        "clause": "A.12.1.2",
+        "scope": 1.0, "criticality": 1.5, "impact": 3.5,
+        "winType": "Quick Win", "effortTech": 3.0, "effortPeople": 3.0, "effortWeeks": "3.0-5.0", "dependencies": "A12-1"
+      },
+      {
+        "id": "technology-3",
+        "security": "Network security management",
+        "priority": "Essential",
+        "details": "Implement network controls such as firewalls, segmentation, and intrusion detection systems.",
+        "clause": "A.13.1.1",
+        "scope": 1.0, "criticality": 1.8, "impact": 4.5,
+        "winType": "Medium", "effortTech": 4.0, "effortPeople": 2.5, "effortWeeks": "4.0-6.0"
+      },
+      {
+        "id": "technology-4",
+        "security": "Secure development policy",
+        "priority": "Advanced",
+        "details": "Establish and enforce a secure software development lifecycle (SDLC) policy.",
+        "clause": "A.14.2.1",
+        "scope": 1.0, "criticality": 1.5, "impact": 4.0,
+        "winType": "Medium", "effortTech": 3.0, "effortPeople": 5.0, "effortWeeks": "6.0-12.0"
+      }
+    ]
+  },
+  {
+    "id": "supplier",
+    "title": "Supplier",
+    "description": "Managing security in supplier relationships.",
+    "longDescription": "Addresses the information security risks associated with supplier access to the organization's assets.",
+    "iconName": "Share2Icon",
+    "color": "#FBBF24",
+    "items": [
+      {
+        "id": "supplier-0",
+        "security": "Information security policy for supplier relationships",
+        "priority": "Essential",
+        "details": "Define and communicate your information security requirements to suppliers.",
+        "clause": "A.15.1.1",
+        "scope": 1.0, "criticality": 1.5, "impact": 4.0,
+        "winType": "Medium", "effortTech": 1.0, "effortPeople": 2.5, "effortWeeks": "2.0-4.0"
+      },
+      {
+        "id": "supplier-1",
+        "security": "Addressing security within supplier agreements",
+        "priority": "Essential",
+        "details": "Ensure that supplier agreements include relevant information security requirements.",
+        "clause": "A.15.1.2",
+        "scope": 1.0, "criticality": 1.8, "impact": 4.5,
+        "winType": "Quick Win", "effortTech": 0.5, "effortPeople": 3.0, "effortWeeks": "2.0-3.0"
+      },
+      {
+        "id": "supplier-2",
+        "security": "Monitoring and review of supplier services",
+        "priority": "Optional",
+        "details": "Regularly monitor, review, and audit supplier service delivery against the agreements.",
+        "clause": "A.15.2.1",
+        "scope": 1.0, "criticality": 1.2, "impact": 4.0,
+        "winType": "Medium", "effortTech": 1.0, "effortPeople": 3.5, "effortWeeks": "3.0-5.0"
+      }
+    ]
+  },
+  {
+    "id": "incident",
+    "title": "Incident",
+    "description": "Managing information security incidents.",
+    "longDescription": "Focuses on the detection, reporting, assessment, and response to information security incidents.",
+    "iconName": "MailIcon",
+    "color": "#E53E3E",
+    "items": [
+      {
+        "id": "incident-0",
+        "security": "Logging and monitoring",
+        "priority": "Essential",
+        "details": "Deploy central logging platform with alerting and defined response procedures.",
+        "clause": "A.12.4.1",
+        "scope": 1.0, "criticality": 1.8, "impact": 4.5,
+        "winType": "Quick Win", "effortTech": 4.0, "effortPeople": 3.2, "effortWeeks": "3.2-6.4", "dependencies": "A16-1"
+      },
+      {
+        "id": "incident-1",
+        "security": "Responsibilities and procedures",
+        "priority": "Essential",
+        "details": "Establish management responsibilities and procedures to ensure a quick, effective, and orderly response to incidents.",
+        "clause": "A.16.1.1",
+        "scope": 1.0, "criticality": 2.0, "impact": 5.0,
+        "winType": "Quick Win", "effortTech": 1.0, "effortPeople": 3.0, "effortWeeks": "2.0-4.0"
+      },
+      {
+        "id": "incident-2",
+        "security": "Learning from information security incidents",
+        "priority": "Optional",
+        "details": "Conduct post-incident reviews to identify root causes and implement improvements to prevent recurrence.",
+        "clause": "A.16.1.6",
+        "scope": 1.0, "criticality": 1.2, "impact": 4.0,
+        "winType": "Medium", "effortTech": 0.5, "effortPeople": 2.5, "effortWeeks": "1.0-2.0"
+      }
+    ]
+  },
+  {
+    "id": "bcdr",
+    "title": "BC/DR",
+    "description": "Business continuity and disaster recovery.",
+    "longDescription": "Ensuring the availability of information processing facilities through business continuity and disaster recovery planning.",
+    "iconName": "HomeIcon",
+    "color": "#4C51BF",
+    "items": [
+      {
+        "id": "bcdr-0",
+        "security": "Information security continuity planning",
+        "priority": "Essential",
+        "details": "Develop and implement plans to maintain information security during a disruptive event.",
+        "clause": "A.17.1.1",
+        "scope": 1.0, "criticality": 1.8, "impact": 5.0,
+        "winType": "Medium", "effortTech": 2.0, "effortPeople": 4.0, "effortWeeks": "4.0-8.0"
+      },
+      {
+        "id": "bcdr-1",
+        "security": "Implementing information security continuity",
+        "priority": "Essential",
+        "details": "Establish, document, implement and maintain processes and controls for information security continuity.",
+        "clause": "A.17.1.2",
+        "scope": 1.0, "criticality": 1.8, "impact": 5.0,
+        "winType": "Medium", "effortTech": 2.5, "effortPeople": 3.5, "effortWeeks": "4.0-6.0"
+      },
+      {
+        "id": "bcdr-2",
+        "security": "Verify, review and evaluate information security continuity",
+        "priority": "Optional",
+        "details": "Regularly test and verify the established information security continuity controls and plans.",
+        "clause": "A.17.1.3",
+        "scope": 1.0, "criticality": 1.5, "impact": 4.5,
+        "winType": "Medium", "effortTech": 1.5, "effortPeople": 3.0, "effortWeeks": "3.0-5.0"
+      },
+       {
+        "id": "bcdr-3",
+        "security": "Backup",
+        "priority": "Essential",
+        "details": "Implement 3-2-1 backup strategy with routine recovery exercises.",
+        "clause": "A.12.3.1",
+        "scope": 1.0, "criticality": 2.0, "impact": 5.0,
+        "winType": "Quick Win", "effortTech": 2.4, "effortPeople": 1.8, "effortWeeks": "1.8-3.6"
+      }
+    ]
+  }
+]
