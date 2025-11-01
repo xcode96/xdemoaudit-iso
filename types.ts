@@ -50,3 +50,10 @@ export interface Category extends Omit<RawCategory, 'items'> {
   total: number;
   items: ChecklistItem[];
 }
+
+export interface LearningHubItem {
+  id: string;
+  what: string;
+  why: string;
+  how: string;
+}

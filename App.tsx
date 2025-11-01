@@ -17,9 +17,12 @@ import ImportExportControls from './components/ImportExportControls';
 import GitHubSync from './components/GitHubSync';
 import Card from './components/Card';
 import ExportCard from './components/ExportCard';
+import LearningHub from './components/LearningHub';
 import { processRawCategories, sanitizeCategoriesForStorage } from './constants';
-import type { Category, ChecklistItem, RawCategory, AuditStatus } from './types';
+import type { Category, ChecklistItem, RawCategory, AuditStatus, LearningHubItem } from './types';
 import { ICON_MAP, ShieldIcon } from './components/icons';
+import { learningHubData as defaultLearningData } from './components/learningHubData';
+import LearningItemModal from './components/LearningItemModal';
 
 
 type Baseline = {
@@ -29,12 +32,16 @@ type Baseline = {
 
 const App: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
+  const [learningData, setLearningData] = useState<LearningHubItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [baseline, setBaseline] = useState<Baseline | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [editingItem, setEditingItem] = useState<{item: ChecklistItem, categoryId: string} | null>(null);
+  const [currentView, setCurrentView] = useState<'dashboard' | 'learningHub'>('dashboard');
+  const [learningItemForModal, setLearningItemForModal] = useState<LearningHubItem | 'new' | null>(null);
+
 
   // Load initial data and admin status
   useEffect(() => {
@@ -49,6 +56,12 @@ const App: React.FC = () => {
           .then((data: RawCategory[]) => {
             setCategories(processRawCategories(data));
           });
+      }
+      const savedLearningData = localStorage.getItem('isoLearningHubData');
+      if (savedLearningData) {
+        setLearningData(JSON.parse(savedLearningData));
+      } else {
+        setLearningData(defaultLearningData);
       }
       const savedBaseline = localStorage.getItem('isoAuditBaseline');
       if (savedBaseline) {
@@ -65,6 +78,7 @@ const App: React.FC = () => {
           .then((data: RawCategory[]) => {
             setCategories(processRawCategories(data));
           });
+      setLearningData(defaultLearningData);
     } finally {
         setIsLoading(false);
     }
@@ -78,6 +92,7 @@ const App: React.FC = () => {
         try {
             const storableCategories = sanitizeCategoriesForStorage(categories);
             localStorage.setItem('isoAuditState', JSON.stringify(storableCategories));
+            localStorage.setItem('isoLearningHubData', JSON.stringify(learningData));
             if(baseline) {
                 localStorage.setItem('isoAuditBaseline', JSON.stringify(baseline));
             }
@@ -85,7 +100,7 @@ const App: React.FC = () => {
             console.error("Could not save state to localStorage", error);
         }
     }
-  }, [categories, baseline, isLoading]);
+  }, [categories, learningData, baseline, isLoading]);
 
   const handleLogin = (password: string): boolean => {
     if (password === 'password') {
@@ -240,6 +255,29 @@ const App: React.FC = () => {
     alert('Data imported successfully!');
   };
 
+  // --- Learning Hub CRUD ---
+  const handleSaveLearningItem = (item: LearningHubItem) => {
+    const isEditing = learningData.some(i => i.id === item.id);
+
+    if (isEditing) {
+      setLearningData(prev => prev.map(i => (i.id === item.id ? item : i)));
+    } else {
+      if (learningData.some(i => i.id.toLowerCase() === item.id.toLowerCase())) {
+        alert('An item with this ID already exists. Please use a unique ID.');
+        return;
+      }
+      setLearningData(prev => [...prev, item].sort((a,b) => a.id.localeCompare(b.id)));
+    }
+    setLearningItemForModal(null);
+  };
+
+  const handleDeleteLearningItem = (itemId: string) => {
+    if (window.confirm(`Are you sure you want to delete the guidance for "${itemId}"? This cannot be undone.`)) {
+      setLearningData(prev => prev.filter(i => i.id !== itemId));
+    }
+  };
+
+
   if (isLoading) {
     return <div className="flex justify-center items-center min-h-screen bg-[#1a1e26] text-white">Loading...</div>;
   }
@@ -248,9 +286,23 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#1a1e26] text-gray-300 font-sans">
-      <Header isAdmin={isAdmin} onLoginClick={() => setIsLoginModalOpen(true)} onLogout={handleLogout} />
+      <Header 
+        isAdmin={isAdmin} 
+        onLoginClick={() => setIsLoginModalOpen(true)} 
+        onLogout={handleLogout}
+        onNavigateToLearningHub={() => setCurrentView('learningHub')}
+      />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {selectedCategory ? (
+        {currentView === 'learningHub' ? (
+          <LearningHub 
+            onBack={() => setCurrentView('dashboard')}
+            learningData={learningData}
+            isAdmin={isAdmin}
+            onAddItem={() => setLearningItemForModal('new')}
+            onEditItem={(item) => setLearningItemForModal(item)}
+            onDeleteItem={handleDeleteLearningItem}
+          />
+        ) : selectedCategory ? (
           <CategoryDetail
             category={selectedCategory}
             onBack={() => setSelectedCategoryId(null)}
@@ -321,6 +373,12 @@ const App: React.FC = () => {
             }}
         />
       )}
+      <LearningItemModal
+        isOpen={!!learningItemForModal}
+        onClose={() => setLearningItemForModal(null)}
+        onSave={handleSaveLearningItem}
+        itemToEdit={learningItemForModal !== 'new' ? learningItemForModal : undefined}
+      />
     </div>
   );
 };
