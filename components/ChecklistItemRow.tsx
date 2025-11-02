@@ -8,6 +8,7 @@ interface ChecklistItemRowProps {
   isAdmin: boolean;
   onEdit: () => void;
   onDelete: () => void;
+  onClauseClick: (clauseId: string) => void;
 }
 
 const getStatusClasses = (status: AuditStatus): { bg: string, text: string, ring: string, selectBg: string } => {
@@ -34,7 +35,7 @@ const TrashIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 
-const ChecklistItemRow: React.FC<ChecklistItemRowProps> = ({ item, onUpdateItem, isAdmin, onEdit, onDelete }) => {
+const ChecklistItemRow: React.FC<ChecklistItemRowProps> = ({ item, onUpdateItem, isAdmin, onEdit, onDelete, onClauseClick }) => {
     const { id, security, details, status, clause } = item;
     
     const [evidence, setEvidence] = useState(item.evidence);
@@ -65,7 +66,15 @@ const ChecklistItemRow: React.FC<ChecklistItemRowProps> = ({ item, onUpdateItem,
             {/* Column 1: Control Details */}
             <div className="px-4 py-2 sm:p-0">
                 <p className="font-semibold text-white">{security}</p>
-                {clause && <p className="text-sm text-gray-500 mt-1">{clause}</p>}
+                {clause && (
+                    <button 
+                        onClick={() => onClauseClick(clause)} 
+                        className="text-sm text-purple-400 hover:text-white hover:underline transition-colors text-left mt-1"
+                        aria-label={`View details for clause ${clause}`}
+                    >
+                        {clause}
+                    </button>
+                )}
                 <div className="text-sm text-gray-400 mt-2" dangerouslySetInnerHTML={{ __html: formattedDetails }} />
             </div>
 

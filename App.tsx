@@ -6,6 +6,7 @@ import ProgressCard from './components/ProgressCard';
 import BarChartListCard from './components/BarChartListCard';
 import Footer from './components/Footer';
 import CategoryDetail from './components/CategoryDetail';
+import ClauseDetail from './components/ClauseDetail';
 import FindingsCard from './components/FindingsCard';
 import CorrectiveActionsCard from './components/CorrectiveActionsCard';
 import WeightingModelTable from './components/WeightingModelTable';
@@ -41,6 +42,8 @@ const App: React.FC = () => {
   const [editingItem, setEditingItem] = useState<{item: ChecklistItem, categoryId: string} | null>(null);
   const [currentView, setCurrentView] = useState<'dashboard' | 'learningHub'>('dashboard');
   const [learningItemForModal, setLearningItemForModal] = useState<LearningHubItem | 'new' | null>(null);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
+  const [selectedClauseId, setSelectedClauseId] = useState<string | null>(null);
 
 
   // Load initial data and admin status
@@ -84,8 +87,6 @@ const App: React.FC = () => {
     }
   }, []);
 
-
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isLoading) {
@@ -276,6 +277,14 @@ const App: React.FC = () => {
       setLearningData(prev => prev.filter(i => i.id !== itemId));
     }
   };
+  
+  const handleClauseClick = (clauseId: string) => {
+    setSelectedClauseId(clauseId);
+  };
+  
+  const handleBackFromClause = () => {
+    setSelectedClauseId(null);
+  };
 
 
   if (isLoading) {
@@ -302,6 +311,13 @@ const App: React.FC = () => {
             onEditItem={(item) => setLearningItemForModal(item)}
             onDeleteItem={handleDeleteLearningItem}
           />
+        ) : selectedClauseId ? (
+          <ClauseDetail
+            clauseId={selectedClauseId}
+            onBack={handleBackFromClause}
+            categories={categories}
+            learningData={learningData}
+          />
         ) : selectedCategory ? (
           <CategoryDetail
             category={selectedCategory}
@@ -314,6 +330,7 @@ const App: React.FC = () => {
             onAddItem={(newItem) => handleAddItem(selectedCategory.id, newItem)}
             onEditItem={(item) => setEditingItem({ item, categoryId: selectedCategory.id })}
             onDeleteItem={(itemId) => handleDeleteItem(selectedCategory.id, itemId)}
+            onClauseClick={handleClauseClick}
           />
         ) : (
           <>

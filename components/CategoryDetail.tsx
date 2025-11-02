@@ -17,6 +17,7 @@ interface CategoryDetailProps {
   onAddItem: (newItem: Omit<ChecklistItem, 'id'>) => void;
   onEditItem: (item: ChecklistItem) => void;
   onDeleteItem: (itemId: string) => void;
+  onClauseClick: (clauseId: string) => void;
 }
 
 const ArrowLeftIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -37,7 +38,7 @@ const TrashIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 
 const CategoryDetail: React.FC<CategoryDetailProps> = ({ 
-    category, onBack, onUpdateItem, onResetProgress, isAdmin, onEditCategory, onDeleteCategory, onAddItem, onEditItem, onDeleteItem
+    category, onBack, onUpdateItem, onResetProgress, isAdmin, onEditCategory, onDeleteCategory, onAddItem, onEditItem, onDeleteItem, onClauseClick
 }) => {
     const { id, title, longDescription, items, icon: Icon, color, conformant, totalAuditable } = category;
     
@@ -152,6 +153,7 @@ const CategoryDetail: React.FC<CategoryDetailProps> = ({
                                         isAdmin={isAdmin}
                                         onEdit={() => onEditItem(item)}
                                         onDelete={() => onDeleteItem(item.id)}
+                                        onClauseClick={onClauseClick}
                                     />
                                 ))
                             ) : (
